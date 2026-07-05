@@ -1,0 +1,355 @@
+@import "../../common/include-media";
+
+.section {
+	background: #070707;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	@include media(">mobile") {
+		width: calc(100% - 6vw);
+		margin-left: auto;
+	}
+
+	@include media("<=mobile") {
+		height: auto;
+		min-height: 100vh;
+		padding: 5rem 0 3rem;
+		display: block;
+	}
+}
+
+.wrapper {
+	display: flex;
+	width: 100%;
+	height: calc(100vh - 6vh);
+	transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+	z-index: 2;
+	position: relative;
+
+	@include media("<=mobile") {
+		flex-direction: column;
+		height: auto;
+		gap: 2rem;
+		padding: 0 1.5rem;
+	}
+
+	&:hover {
+		.column {
+			flex: 0.65;
+			opacity: 0.35;
+		}
+	}
+}
+
+.column {
+	flex: 1;
+	height: 100%;
+	position: relative;
+	border-right: 1px solid rgba(255, 255, 255, 0.04);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 8vh 4.5vw;
+	transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+	background: #090909;
+	text-decoration: none;
+	color: inherit;
+	overflow: hidden;
+	opacity: 0;
+	transform: translateY(40px);
+
+	&:last-child {
+		border-right: none;
+	}
+
+	&:hover {
+		flex: 1.7 !important;
+		opacity: 1 !important;
+		background: #0c0c0c;
+
+		.columnGlow {
+			opacity: 0.15;
+		}
+
+		.watermarkText {
+			color: rgba(255, 255, 255, 0.015);
+			transform: scale(1.08) translate(-10px, 10px);
+		}
+
+		.number {
+			color: #ff4040;
+		}
+
+		.title {
+			color: #ffffff;
+			transform: translateY(-5px);
+		}
+
+		.details {
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		.arrowIcon {
+			transform: rotate(-45deg) scale(1.15);
+			color: #ff4040 !important;
+		}
+	}
+
+	@include media("<=mobile") {
+		height: auto;
+		border-right: none;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+		padding: 3rem 1.5rem;
+		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.02);
+		transform: none;
+		opacity: 1;
+		
+		&:hover {
+			flex: 1 !important;
+			background: rgba(255, 255, 255, 0.02);
+			transform: none;
+		}
+	}
+}
+
+.columnGlow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+	z-index: 1;
+	transition: opacity 0.7s ease;
+}
+
+.whatsappCol {
+	.columnGlow {
+		background: radial-gradient(800px circle at 50% 50%, rgba(37, 211, 102, 0.35), transparent 60%);
+	}
+	&:hover {
+		border-color: rgba(37, 211, 102, 0.2) !important;
+		.whatsappIcon {
+			color: #25d366;
+		}
+	}
+}
+
+.emailCol {
+	.columnGlow {
+		background: radial-gradient(800px circle at 50% 50%, rgba(255, 64, 64, 0.35), transparent 60%);
+	}
+	&:hover {
+		border-color: rgba(255, 64, 64, 0.2) !important;
+		.emailIcon {
+			color: #ff4040;
+		}
+	}
+}
+
+.socialCol {
+	cursor: default;
+	.columnGlow {
+		background: radial-gradient(800px circle at 50% 50%, rgba(0, 162, 255, 0.35), transparent 60%);
+	}
+	&:hover {
+		border-color: rgba(0, 162, 255, 0.2) !important;
+	}
+}
+
+.watermarkText {
+	position: absolute;
+	font-family: "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	font-weight: 600;
+	font-size: 10vw;
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.005);
+	pointer-events: none;
+	user-select: none;
+	bottom: 2vh;
+	right: 1vw;
+	z-index: 0;
+	transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+	@include media("<=mobile") {
+		display: none;
+	}
+}
+
+.colHeader {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	z-index: 2;
+	position: relative;
+}
+
+.number {
+	font: 600 1.25rem "New York Extra Large", Georgia, serif;
+	color: #55555c;
+	transition: color 0.3s ease;
+}
+
+.category {
+	font: 600 0.75rem "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #ff4040;
+	text-transform: uppercase;
+	letter-spacing: 0.25em;
+}
+
+.colBody {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+	z-index: 2;
+	position: relative;
+	margin-top: auto;
+
+	@include media("<=mobile") {
+		margin-top: 2rem;
+		gap: 1.5rem;
+	}
+}
+
+.title {
+	font: 600 clamp(2.2rem, 4vh, 3.5rem)/110% "New York Extra Large", serif;
+	color: #e5e5e5;
+	letter-spacing: -0.04em;
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.details {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	opacity: 0.75;
+	transform: translateY(10px);
+	transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+	p {
+		font: 500 clamp(0.9rem, 1.6vh, 1rem)/160% "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+		color: #898989;
+		max-width: 320px;
+	}
+
+	@include media("<=mobile") {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.emailText {
+	font: 600 clamp(0.95rem, 1.8vh, 1.15rem) "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #ffffff;
+	letter-spacing: -0.01em;
+	word-break: break-all;
+}
+
+.actionLink {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 0.5rem;
+
+	span {
+		font: 600 0.8125rem "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+		color: #ffffff;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+}
+
+.whatsappIcon, .emailIcon {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: #898989;
+	transition: color 0.3s ease;
+}
+
+.arrowIcon {
+	width: 1.125rem;
+	height: 1.125rem;
+	color: #55555c !important;
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.socialList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 0.5rem;
+}
+
+.socialLink {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: #898989 !important;
+	font: 600 0.8125rem "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	text-decoration: none;
+	transition: all 0.3s ease;
+
+	svg {
+		width: 1.125rem;
+		height: 1.125rem;
+		fill: currentColor;
+	}
+
+	&:hover {
+		color: #ffffff !important;
+		transform: translateX(6px);
+	}
+}
+
+.footer {
+	height: 6vh;
+	width: 100%;
+	border-top: 1px solid rgba(255, 255, 255, 0.04);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2.5rem;
+	padding: 0 4vw;
+	z-index: 10;
+	background: #070707;
+	opacity: 0;
+
+	@include media("<=mobile") {
+		height: auto;
+		padding: 2rem 1.5rem 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+}
+
+.footerItem {
+	font: 600 0.75rem "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #55555c;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+}
+
+.footerDivider {
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.08);
+
+	@include media("<=mobile") {
+		display: none;
+	}
+}
+
+.hidden-init {
+	visibility: hidden;
+}

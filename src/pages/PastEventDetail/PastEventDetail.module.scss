@@ -1,0 +1,510 @@
+@import "../../common/include-media";
+
+.section {
+	background: #121212;
+	color: #fff;
+	min-height: 100vh;
+
+	@include media(">mobile") {
+		width: calc(100% - 6vw);
+		margin-left: auto;
+		padding: 12vh 10vw 8vh;
+	}
+	@include media("<=mobile") {
+		padding: 6rem 1.5rem 4rem;
+	}
+}
+
+.hero {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 8vh;
+	position: relative;
+
+	@include media("<=mobile") {
+		height: 70vh;
+		margin-bottom: 4rem;
+	}
+}
+
+.watermark {
+	position: absolute;
+	font: 600 40vh/100% "New York Extra Large", serif;
+	color: rgba(255, 255, 255, 0.02);
+	pointer-events: none;
+	user-select: none;
+	z-index: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	@include media("<=mobile") {
+		font-size: 10rem;
+	}
+}
+
+.headline {
+	font: 600 8vh/110% "New York Extra Large", serif;
+	letter-spacing: -0.04em;
+	margin-bottom: 3vh;
+	text-transform: uppercase;
+	color: #fff;
+	z-index: 1;
+
+	@include media("<=mobile") {
+		font-size: 2.5rem;
+	}
+}
+
+.tag {
+	font: 600 1.56vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #ff4040;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	margin-bottom: 4vh;
+	border: 1px solid rgba(255, 64, 64, 0.3);
+	padding: 0.8vh 2vh;
+	border-radius: 20px;
+	width: fit-content;
+	z-index: 1;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+		margin-bottom: 2rem;
+	}
+}
+
+.metaRow {
+	display: flex;
+	gap: 2rem;
+	z-index: 1;
+
+	@include media("<=mobile") {
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+}
+
+.metaItem {
+	font: 600 1.78vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #898989;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+	}
+}
+
+.sectionTitle {
+	font: 600 3.33vh "New York Extra Large", serif;
+	color: #ff4040;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 4vh;
+
+	@include media("<=mobile") {
+		font-size: 1.5rem;
+		margin-bottom: 2rem;
+	}
+}
+
+.overview {
+	display: flex;
+	gap: 8vw;
+	margin: 12vh 0;
+	padding: 8vh 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+	@include media("<=mobile") {
+		flex-direction: column;
+		gap: 3rem;
+		margin: 6rem 0;
+		padding: 3rem 0;
+	}
+}
+
+.overviewLeft {
+	flex: 1.5;
+}
+
+.overviewDesc {
+	font: 500 2.4vh/160% "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #dddddd;
+	text-align: justify;
+
+	@include media("<=mobile") {
+		font-size: 1.05rem;
+	}
+}
+
+.overviewRight {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 4vh;
+
+	@include media("<=mobile") {
+		gap: 2rem;
+	}
+}
+
+.overviewStat {
+	border-left: 2px solid #ff4040;
+	padding-left: 2vw;
+
+	@include media("<=mobile") {
+		padding-left: 1rem;
+	}
+}
+
+.statNum {
+	font: 600 5vh/100% "New York Extra Large", serif;
+	color: #fff;
+	margin-bottom: 1vh;
+
+	@include media("<=mobile") {
+		font-size: 2.25rem;
+	}
+}
+
+.statLabel {
+	font: 600 1.56vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #898989;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+	}
+}
+
+.detailsStrip {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2vw;
+	margin: 12vh 0;
+	padding: 6vh 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+	@include media("<=mobile") {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		margin: 6rem 0;
+		padding: 3rem 0;
+	}
+}
+
+.stripItem {
+	display: flex;
+	flex-direction: column;
+}
+
+.stripLabel {
+	font: 600 1.56vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #ff4040;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 1.5vh;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+	}
+}
+
+.stripValue {
+	font: 500 2.2vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #fff;
+
+	@include media("<=mobile") {
+		font-size: 1rem;
+	}
+}
+
+.objectiveSection {
+	margin: 12vh 0;
+	padding: 8vh 0;
+	background: #1a1a1a;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+
+	@include media(">mobile") {
+		padding: 10vh 8vw;
+	}
+	@include media("<=mobile") {
+		margin: 6rem 0;
+		padding: 3rem 1.5rem;
+	}
+}
+
+.objectiveText {
+	font: 500 3.3vh/150% "New York Extra Large", Georgia, serif;
+	color: #fff;
+	white-space: pre-line;
+
+	@include media("<=mobile") {
+		font-size: 1.6rem;
+	}
+}
+
+.guestsSection {
+	margin: 12vh 0;
+}
+
+.guestsGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2.5vw;
+
+	@include media("<=960px") {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+	@include media("<=560px") {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+}
+
+.guestCard {
+	background: #1a1a1a;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	padding: 4vh 2.5vw;
+	transition: border-color 0.3s ease;
+
+	@include media("<=mobile") {
+		padding: 2rem 1.5rem;
+	}
+
+	&:hover {
+		border-color: #ff4040;
+	}
+}
+
+.guestName {
+	font: 600 2.5vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #fff;
+	margin-bottom: 1vh;
+
+	@include media("<=mobile") {
+		font-size: 1.25rem;
+	}
+}
+
+.guestRole {
+	font: 600 1.5vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #ff4040;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 1vh;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+	}
+}
+
+.guestOrg {
+	font: 500 1.7vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #898989;
+
+	@include media("<=mobile") {
+		font-size: 0.85rem;
+	}
+}
+
+@import "../../common/variables";
+
+.gallerySection {
+	margin: 12vh 0;
+	position: relative;
+
+	@include media(">mobile") {
+		height: 250vh;
+		margin: 0;
+	}
+}
+
+.galleryPinWrapper {
+	@include media(">mobile") {
+		height: 100vh;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 8vh 0;
+		overflow: hidden;
+		position: relative;
+	}
+}
+
+.galleryScrollWrapper {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	margin-top: 4vh;
+
+	@include media("<=mobile") {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+.galleryScrollContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 4vw;
+	width: fit-content;
+	padding: 0 10vw;
+	will-change: transform;
+
+	@include media("<=mobile") {
+		padding: 0 1.5rem;
+		gap: 1.5rem;
+	}
+}
+
+.galleryImageContainer {
+	flex: 0 0 auto;
+	width: 45vw;
+	aspect-ratio: 16/10;
+	overflow: hidden;
+	background: $bg-card;
+	border: 1px solid $border-white;
+
+	@include media("<=mobile") {
+		width: 75vw;
+	}
+}
+
+.galleryImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: scale(1.25);
+	clip-path: inset(100% 0% 0% 0%);
+}
+
+.exploreFullGalleryWrapper {
+	margin-top: 6vh;
+	text-align: center;
+
+	@include media("<=mobile") {
+		margin-top: 2rem;
+		padding: 0 1.5rem;
+	}
+}
+
+.exploreLink {
+	font: 600 1.8vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	text-decoration: none;
+	transition: color 0.3s ease;
+
+	&:hover {
+		color: $text-white;
+	}
+
+	@include media("<=mobile") {
+		font-size: 0.85rem;
+	}
+}
+
+.highlightsSection {
+	margin: 12vh 0;
+	padding: 8vh 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.highlightsList {
+	display: flex;
+	flex-direction: column;
+	gap: 4vh;
+
+	@include media("<=mobile") {
+		gap: 2rem;
+	}
+}
+
+.highlightItem {
+	font: 500 4vh/140% "New York Extra Large", Georgia, serif;
+	color: #fff;
+
+	@include media("<=mobile") {
+		font-size: 1.75rem;
+	}
+}
+
+.navFooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 12vh;
+	padding-top: 8vh;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+	@include media("<=mobile") {
+		flex-direction: column;
+		gap: 3rem;
+		align-items: flex-start;
+		margin-top: 6rem;
+		padding-top: 4rem;
+	}
+}
+
+.navBlock {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	max-width: 45%;
+
+	@include media("<=mobile") {
+		max-width: 100%;
+	}
+
+	&.next {
+		align-items: flex-end;
+		text-align: right;
+
+		@include media("<=mobile") {
+			align-items: flex-start;
+			text-align: left;
+		}
+	}
+}
+
+.navLabel {
+	font: 600 1.56vh "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	color: #898989;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	margin-bottom: 1.5vh;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+	}
+}
+
+.navName {
+	font: 600 3.3vh "New York Extra Large", serif;
+	color: #fff;
+	transition: color 0.3s ease;
+
+	.navBlock:hover & {
+		color: #ff4040;
+	}
+
+	@include media("<=mobile") {
+		font-size: 1.5rem;
+	}
+}
+
+.animateOpacity {
+	opacity: 0;
+}

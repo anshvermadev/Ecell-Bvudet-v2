@@ -1,0 +1,108 @@
+@import "../../common/include-media";
+
+.preloaderContainer {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	z-index: 7;
+}
+
+.preloader {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #d8d8d8;
+	overflow: hidden;
+	visibility: hidden;
+	clip-path: inset(49.85% 100% 49.85% 0%);
+}
+
+.word {
+	opacity: 0;
+	z-index: 6;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include media(">mobile") {
+		flex-direction: row;
+	}
+	@include media("<=mobile") {
+		flex-direction: column;
+		width: 100vw;
+	}
+}
+
+.york {
+	display: inline-grid;
+	z-index: 1;
+
+	@include media(">mobile") {
+		gap: 0.56vh;
+		grid-template-columns: repeat(6, 8.89vh);
+	}
+	@include media("<=mobile") {
+		gap: 0.125rem;
+		grid-template-columns: repeat(6, 2rem);
+	}
+}
+
+.logoContainer {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: #ff4040;
+	z-index: 1;
+
+	@include media(">mobile") {
+		width: 8.89vh;
+		height: 8.89vh;
+		margin: 0 1.67vh;
+	}
+	@include media("<=mobile") {
+		width: 2.2rem;
+		height: 2.2rem;
+		margin: 1.5rem 0;
+	}
+}
+
+.logoSvg {
+	width: 60%;
+	height: 60%;
+	stroke: #fff;
+	fill: none;
+}
+
+.dante {
+	display: inline-grid;
+	z-index: 1;
+
+	@include media(">mobile") {
+		gap: 0.56vh;
+		grid-template-columns: repeat(6, 8.89vh);
+	}
+	@include media("<=mobile") {
+		gap: 0.125rem;
+		grid-template-columns: repeat(6, 2rem);
+	}
+}
+
+.letter {
+	display: flex;
+	justify-content: center;
+	overflow-y: hidden;
+
+	@include media(">mobile") {
+		width: 8.89vh;
+		height: 8.89vh;
+	}
+	@include media("<=mobile") {
+		width: 2rem;
+		height: 2rem;
+	}
+}

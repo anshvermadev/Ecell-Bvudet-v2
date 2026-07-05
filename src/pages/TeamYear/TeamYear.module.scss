@@ -1,0 +1,476 @@
+@import "../../common/include-media";
+@import "../../common/variables";
+
+.section {
+	background: $bg-dark;
+	color: $text-white;
+	min-height: 100vh;
+
+	@include media(">mobile") {
+		width: calc(100% - 6vw);
+		margin-left: auto;
+		padding: 12vh 10vw 8vh;
+	}
+	@include media("<=mobile") {
+		padding: 6rem 1.5rem 4rem;
+	}
+}
+
+// Hero Section
+.hero {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 8vh;
+	position: relative;
+
+	@include media("<=mobile") {
+		height: 70vh;
+		margin-bottom: 4rem;
+	}
+}
+
+.headline {
+	font: 600 8vh/110% $font-serif;
+	letter-spacing: -0.04em;
+	margin-bottom: 2vh;
+	text-transform: uppercase;
+	color: $text-white;
+	z-index: 1;
+
+	@include media("<=mobile") {
+		font-size: 2.75rem;
+	}
+}
+
+.subtitle {
+	font: 500 2.22vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	z-index: 1;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+	}
+}
+
+.scrollIndicator {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	left: 50%;
+	z-index: 2;
+	color: #ffffff;
+	font-family: "Neue Haas Grotesk Display Pro", Arial, sans-serif;
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	opacity: 0;
+	animation: hopCentred 2s infinite ease-in-out;
+
+	@include media(">mobile") {
+		font-size: 0.85rem;
+		bottom: 3.5rem;
+	}
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+		bottom: 2.5rem;
+	}
+}
+
+.scrollLine {
+	width: 1px;
+	height: 2.5rem;
+	background-color: rgba(255, 255, 255, 0.3);
+	position: relative;
+	overflow: hidden;
+	margin-top: 0.5rem;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #ffffff;
+		animation: scrollLineAnim 2s infinite cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+}
+
+@keyframes hopCentred {
+	0%, 100% {
+		transform: translateX(-50%) translateY(0);
+	}
+	50% {
+		transform: translateX(-50%) translateY(-10px);
+	}
+}
+
+@keyframes scrollLineAnim {
+	0% {
+		transform: scaleY(0);
+		transform-origin: top;
+	}
+	50% {
+		transform: scaleY(1);
+		transform-origin: top;
+	}
+	51% {
+		transform: scaleY(1);
+		transform-origin: bottom;
+	}
+	100% {
+		transform: scaleY(0);
+		transform-origin: bottom;
+	}
+}
+
+// Section Grid
+.coreSection {
+	margin-bottom: 8vh;
+	padding-top: 6vh;
+	border-top: 1px solid $border-white;
+
+	@include media("<=mobile") {
+		margin-bottom: 4rem;
+	}
+}
+
+.teamGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 6.67vh 4vw;
+	padding: 0 2vw;
+
+	@include media("<=960px") {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+	@include media("<=560px") {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+}
+
+.memberCard {
+	display: flex;
+	flex-direction: column;
+}
+
+.imageWrapper {
+	width: 100%;
+	aspect-ratio: 4/5;
+	overflow: hidden;
+	background: $bg-card;
+	border: 1px solid $border-white;
+	margin-bottom: 3vh;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: scale(1.25);
+	clip-path: inset(100% 0% 0% 0%);
+}
+
+.memberName {
+	font: 600 2.5vh $font-serif;
+	color: $text-white;
+	margin-bottom: 0.8vh;
+
+	@include media("<=mobile") {
+		font-size: 1.25rem;
+	}
+}
+
+.memberRole {
+	font: 600 1.5vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 1.5vh;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+	}
+}
+
+.viewProfile {
+	font: 600 1.5vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+	width: fit-content;
+	position: relative;
+	transition: color 0.3s ease;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: $text-muted;
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 0.3s ease, background-color 0.3s ease;
+	}
+
+	&:hover {
+		color: $text-white;
+		&::after {
+			background: $text-white;
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+}
+
+.disabledLink {
+	color: $text-dark-muted;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+// Fallback message
+.fallbackMessage {
+	text-align: center;
+	font: 500 2.22vh/160% $font-sans;
+	color: $text-muted;
+	padding: 10vh 0;
+	width: 100%;
+
+	@include media("<=mobile") {
+		font-size: 1rem;
+		padding: 3rem 0;
+	}
+}
+
+// Back Navigation
+.backNav {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	font: 600 1.56vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	margin-top: 6vh;
+	padding-top: 4vh;
+	border-top: 1px solid $border-white;
+	width: 100%;
+	transition: color 0.3s ease;
+
+	&:hover {
+		color: $text-white;
+	}
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+		margin-top: 2rem;
+		padding-top: 2rem;
+	}
+}
+
+// Modal Styles (copied from Team.module.scss for self-containment)
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.85);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.4s ease;
+
+	&.isOpen {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.modalPanel {
+	background: $bg-card;
+	border: 1px solid $border-white;
+	width: 90%;
+	max-width: 600px;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+	padding: 6vh 4vw;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+	transform: translateY(50px);
+	transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+	.isOpen & {
+		transform: translateY(0);
+	}
+
+	@include media("<=mobile") {
+		padding: 2.5rem 1.5rem;
+	}
+}
+
+.modalClose {
+	position: absolute;
+	top: 2.5vh;
+	right: 2.5vh;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	width: 5vh;
+	height: 5vh;
+	min-width: 36px;
+	min-height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: #ffffff;
+	transition: all 0.3s ease;
+	z-index: 10;
+
+	&:hover {
+		background: $accent-red;
+		border-color: $accent-red;
+		color: #ffffff;
+		transform: rotate(90deg);
+	}
+
+	svg {
+		width: 2vh;
+		height: 2vh;
+		min-width: 16px;
+		min-height: 16px;
+
+		circle {
+			display: none;
+		}
+
+		path {
+			stroke: currentColor !important;
+			stroke-width: 3 !important;
+		}
+	}
+}
+
+.modalIdentity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 4vh;
+}
+
+.modalAvatarWrapper {
+	width: 18vh;
+	height: 18vh;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid $border-white;
+	background: $bg-dark;
+	margin-bottom: 2.5vh;
+
+	@include media("<=mobile") {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+.modalAvatar {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.modalName {
+	font: 600 4vh/110% $font-serif;
+	color: $text-white;
+	margin-bottom: 1vh;
+
+	@include media("<=mobile") {
+		font-size: 1.75rem;
+	}
+}
+
+.modalRole {
+	font: 600 1.6vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+}
+
+.modalSection {
+	margin-bottom: 3.5vh;
+	text-align: center;
+}
+
+.modalLabel {
+	font: 600 1.4vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	margin-bottom: 1.5vh;
+	display: block;
+}
+
+.modalBody {
+	font: 500 1.8vh/170% $font-sans;
+	color: $text-muted;
+
+	@include media("<=mobile") {
+		font-size: 0.95rem;
+	}
+}
+
+.mutedText {
+	color: $text-dark-muted;
+	font-style: italic;
+}
+
+.modalLinks {
+	display: flex;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+	margin-top: 1vh;
+	justify-content: center;
+}
+
+.modalLink {
+	color: $text-muted;
+	font: 600 1.4vh $font-sans;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	transition: color 0.3s ease, transform 0.3s ease;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	&:hover {
+		color: $accent-red;
+		transform: translateY(-2px);
+	}
+
+	svg {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.animateOpacity {
+	opacity: 0;
+}

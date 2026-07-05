@@ -1,0 +1,541 @@
+@import "../../common/include-media";
+@import "../../common/variables";
+
+.section {
+	background: $bg-dark;
+	color: $text-white;
+	min-height: 100vh;
+
+	@include media(">mobile") {
+		width: calc(100% - 6vw);
+		margin-left: auto;
+		padding: 12vh 10vw 8vh;
+	}
+	@include media("<=mobile") {
+		padding: 6rem 1.5rem 4rem;
+	}
+}
+
+// Hero Section
+.hero {
+	height: calc(100vh - 12vh);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 0;
+	position: relative;
+
+	@include media("<=mobile") {
+		height: calc(100vh - 6rem);
+		margin-bottom: 0;
+	}
+}
+
+.scrollExplore {
+	position: absolute;
+	bottom: 4vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5vh;
+	cursor: pointer;
+	z-index: 2;
+
+	@include media("<=mobile") {
+		bottom: 3rem;
+		gap: 1rem;
+	}
+}
+
+.scrollText {
+	font: 600 1.3vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.25em;
+
+	@include media("<=mobile") {
+		font-size: 0.65rem;
+	}
+}
+
+.scrollArrow {
+	width: 4vh;
+	height: auto;
+	transform: rotate(90deg);
+	stroke: $text-muted;
+	transition: stroke 0.3s ease, transform 0.3s ease;
+
+	@include media("<=mobile") {
+		width: 1.5rem;
+	}
+
+	.scrollExplore:hover & {
+		stroke: $accent-red;
+		transform: rotate(90deg) translateY(5px);
+	}
+}
+
+.headline {
+	font: 600 8vh/110% $font-serif;
+	letter-spacing: -0.04em;
+	margin-bottom: 2vh;
+	text-transform: uppercase;
+	color: $text-white;
+	z-index: 1;
+
+	@include media("<=mobile") {
+		font-size: 2.75rem;
+	}
+}
+
+.subtitle {
+	font: 500 2.22vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	z-index: 1;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+	}
+}
+
+// Section Headings
+.sectionTitle {
+	font: 600 3.33vh $font-serif;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 2vh;
+	text-align: center;
+
+	@include media("<=mobile") {
+		font-size: 1.5rem;
+	}
+}
+
+.sectionSubtitle {
+	font: 500 2.22vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	text-align: center;
+	margin-bottom: 6vh;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+		margin-bottom: 2.5rem;
+	}
+}
+
+// Faculty Coordinators List
+.facultySection {
+	margin-bottom: 12vh;
+	padding-top: 6vh;
+	border-top: 1px solid $border-white;
+
+	@include media("<=mobile") {
+		margin-bottom: 6rem;
+	}
+}
+
+.facultyGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 6vw;
+	max-width: 1000px;
+	margin: 0 auto;
+
+	@include media("<=mobile") {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+}
+
+.facultyCard {
+	display: flex;
+	flex-direction: column;
+	background: transparent;
+}
+
+.imageWrapper {
+	width: 100%;
+	aspect-ratio: 4/5;
+	overflow: hidden;
+	background: $bg-card;
+	border: 1px solid $border-white;
+	margin-bottom: 3vh;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: scale(1.25);
+	clip-path: inset(100% 0% 0% 0%);
+}
+
+.facultyName {
+	font: 600 3.33vh $font-serif;
+	color: $text-white;
+	margin-bottom: 1vh;
+
+	@include media("<=mobile") {
+		font-size: 1.6rem;
+	}
+}
+
+.facultyRole {
+	font: 600 1.56vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 1.5vh;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+	}
+}
+
+.divider {
+	border: none;
+	border-bottom: 1px solid $border-white;
+	margin-bottom: 1.5vh;
+}
+
+.facultyDept {
+	font: 500 1.78vh/150% $font-sans;
+	color: $text-muted;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+	}
+}
+
+// Current Core Team Section
+.coreSection {
+	margin-bottom: 12vh;
+	padding-top: 6vh;
+	border-top: 1px solid $border-white;
+
+	@include media("<=mobile") {
+		margin-bottom: 6rem;
+	}
+}
+
+.teamGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 6.67vh 4vw;
+	padding: 0 2vw;
+
+	@include media("<=960px") {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+	@include media("<=560px") {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+}
+
+.memberCard {
+	display: flex;
+	flex-direction: column;
+}
+
+.memberName {
+	font: 600 2.5vh $font-serif;
+	color: $text-white;
+	margin-bottom: 0.8vh;
+
+	@include media("<=mobile") {
+		font-size: 1.25rem;
+	}
+}
+
+.memberRole {
+	font: 600 1.5vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 1.5vh;
+
+	@include media("<=mobile") {
+		font-size: 0.75rem;
+	}
+}
+
+.viewProfile {
+	font: 600 1.5vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+	width: fit-content;
+	position: relative;
+	transition: color 0.3s ease;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: $text-muted;
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 0.3s ease, background-color 0.3s ease;
+	}
+
+	&:hover {
+		color: $text-white;
+		&::after {
+			background: $text-white;
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+}
+
+.disabledLink {
+	color: $text-dark-muted;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+// CTA Band
+.ctaBand {
+	text-align: center;
+	background: $accent-red;
+	color: $text-white;
+	padding: 8vh 4vw;
+	margin-top: 8vh;
+
+	@include media("<=mobile") {
+		padding: 6vh 1.5rem;
+	}
+}
+
+.ctaTitle {
+	font: 600 6vh $font-serif;
+	margin-bottom: 2vh;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+
+	@include media("<=mobile") {
+		font-size: 2.25rem;
+	}
+}
+
+.ctaSubtext {
+	font: 500 2.2vh $font-sans;
+	color: rgba(255, 255, 255, 0.8);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 4vh;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+		margin-bottom: 2rem;
+	}
+}
+
+.ctaButton {
+	display: inline-block;
+}
+
+// Member Detail Modal
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.85);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.4s ease;
+
+	&.isOpen {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.modalPanel {
+	background: $bg-card;
+	border: 1px solid $border-white;
+	width: 90%;
+	max-width: 600px;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+	padding: 6vh 4vw;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+	transform: translateY(50px);
+	transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+	.isOpen & {
+		transform: translateY(0);
+	}
+
+	@include media("<=mobile") {
+		padding: 2.5rem 1.5rem;
+	}
+}
+
+.modalClose {
+	position: absolute;
+	top: 2.5vh;
+	right: 2.5vh;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	width: 5vh;
+	height: 5vh;
+	min-width: 36px;
+	min-height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: #ffffff;
+	transition: all 0.3s ease;
+	z-index: 10;
+
+	&:hover {
+		background: $accent-red;
+		border-color: $accent-red;
+		color: #ffffff;
+		transform: rotate(90deg);
+	}
+
+	svg {
+		width: 2vh;
+		height: 2vh;
+		min-width: 16px;
+		min-height: 16px;
+
+		circle {
+			display: none;
+		}
+
+		path {
+			stroke: currentColor !important;
+			stroke-width: 3 !important;
+		}
+	}
+}
+
+.modalIdentity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 4vh;
+}
+
+.modalAvatarWrapper {
+	width: 18vh;
+	height: 18vh;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid $border-white;
+	background: $bg-dark;
+	margin-bottom: 2.5vh;
+
+	@include media("<=mobile") {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+.modalAvatar {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.modalName {
+	font: 600 4vh/110% $font-serif;
+	color: $text-white;
+	margin-bottom: 1vh;
+
+	@include media("<=mobile") {
+		font-size: 1.75rem;
+	}
+}
+
+.modalRole {
+	font: 600 1.6vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+}
+
+.modalSection {
+	margin-bottom: 3.5vh;
+}
+
+.modalLabel {
+	font: 600 1.4vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	margin-bottom: 1.5vh;
+	display: block;
+}
+
+.modalBody {
+	font: 500 1.8vh/170% $font-sans;
+	color: $text-muted;
+
+	@include media("<=mobile") {
+		font-size: 0.95rem;
+	}
+}
+
+.mutedText {
+	color: $text-dark-muted;
+	font-style: italic;
+}
+
+.modalLinks {
+	display: flex;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+	margin-top: 1vh;
+}
+
+.modalLink {
+	color: $text-muted;
+	font: 600 1.4vh $font-sans;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	transition: color 0.3s ease, transform 0.3s ease;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	&:hover {
+		color: $accent-red;
+		transform: translateY(-2px);
+	}
+
+	svg {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.animateOpacity {
+	opacity: 0;
+}

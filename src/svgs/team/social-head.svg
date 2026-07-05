@@ -1,0 +1,20 @@
+<svg width="400" height="460" viewBox="0 0 400 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141416" />
+      <stop offset="100%" stop-color="#070708" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="460" fill="url(#cardGrad)" />
+  <rect x="0.5" y="0.5" width="399" height="459" stroke="#ff4040" stroke-opacity="0.1" />
+  <rect x="30" y="30" width="4" height="24" fill="#ff4040" />
+  <text x="44" y="46" font-family="'Neue Haas Grotesk Display Pro', Arial, sans-serif" font-size="12" font-weight="700" fill="#ff4040" letter-spacing="2">
+    SOCIAL MEDIA HEAD
+  </text>
+  <text x="30" y="110" font-family="'New York Extra Large', Georgia, serif" font-size="32" font-weight="600" fill="#FFFFFF">
+    To Be Announced
+  </text>
+  <text x="30" y="420" font-family="'Neue Haas Grotesk Display Pro', Arial, sans-serif" font-size="11" font-weight="500" fill="#55555C" letter-spacing="1.5">
+    E-CELL BVUDET · EST. 2023
+  </text>
+</svg>

@@ -1,0 +1,265 @@
+@import "../../common/include-media";
+@import "../../common/variables";
+
+.gallery {
+	position: absolute;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: $bg-light;
+	color: $text-black;
+	min-height: 100vh;
+
+	@include media(">mobile") {
+		width: 94vw;
+	}
+	@include media("<=mobile") {
+		width: 100%;
+	}
+}
+
+.headerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 12vh 0 6vh;
+	width: 100%;
+	z-index: 2;
+}
+
+.headline {
+	font: 600 8vh/110% $font-serif;
+	letter-spacing: -0.04em;
+	margin-bottom: 2vh;
+	text-transform: uppercase;
+	color: $text-black;
+
+	@include media("<=mobile") {
+		font-size: 2.5rem;
+		padding: 0 1.5rem;
+	}
+}
+
+.subtitle {
+	font: 500 2.22vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+	}
+}
+
+.grid {
+	width: 100%;
+	display: grid;
+	z-index: 2;
+
+	@include media(">mobile") {
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 6.67vh;
+		padding: 0 6.78vh;
+	}
+	@include media("<=mobile") {
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 1.5rem;
+		padding: 2rem 1.5rem 0;
+	}
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.desktopColumn {
+	composes: column;
+	row-gap: 6.67vh;
+	margin-bottom: 10vh;
+
+	@include media("<=mobile") {
+		display: none;
+	}
+}
+
+.mobileColumn {
+	composes: column;
+	row-gap: 1.5rem;
+
+	@include media(">mobile") {
+		display: none;
+	}
+}
+
+.middleColumn {
+	composes: desktopColumn;
+	margin-top: 10vh;
+}
+
+.leftColumn {
+	composes: mobileColumn;
+	height: fit-content;
+}
+
+.rightColumn {
+	composes: mobileColumn;
+	height: fit-content;
+	margin: 3.5rem 0;
+}
+
+.imageContainer {
+	width: 100%;
+	aspect-ratio: 16/18;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	visibility: hidden;
+	transform: scale(1.25);
+	clip-path: inset(100% 0% 0% 0%);
+	transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+// Back Nav Link
+.backNavWrapper {
+	padding: 8vh 0;
+	text-align: center;
+	z-index: 2;
+	width: 100%;
+}
+
+.backNav {
+	font: 600 1.56vh $font-sans;
+	color: $accent-red;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	text-decoration: none;
+	transition: color 0.3s ease;
+
+	&:hover {
+		color: $text-black;
+	}
+
+	@include media("<=mobile") {
+		font-size: 0.85rem;
+	}
+}
+
+// Lightbox Styles
+.lightboxOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $overlay-bg;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.4s ease;
+
+	&.isOpen {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.lightboxContent {
+	position: relative;
+	width: 90vw;
+	height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lightboxImage {
+	max-width: 90%;
+	max-height: 90%;
+	object-fit: contain;
+	border: 1px solid $border-white;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+	transform: scale(0.9);
+	opacity: 0;
+	transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.45s ease;
+
+	.isOpen & {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.lightboxBtn {
+	position: absolute;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	color: $text-muted;
+	transition: color 0.3s ease, transform 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		color: $text-white;
+		transform: scale(1.1);
+	}
+}
+
+.closeBtn {
+	composes: lightboxBtn;
+	top: 2vh;
+	right: 2vh;
+	padding: 1rem;
+
+	svg {
+		width: 24px;
+		height: 24px;
+		stroke: currentColor;
+		stroke-width: 1.5;
+	}
+}
+
+.navBtn {
+	composes: lightboxBtn;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 2rem;
+
+	svg {
+		width: 48px;
+		height: 48px;
+		stroke: currentColor;
+		stroke-width: 1.5;
+	}
+}
+
+.prevBtn {
+	composes: navBtn;
+	left: 2vw;
+}
+
+.nextBtn {
+	composes: navBtn;
+	right: 2vw;
+}
+
+.animateOpacity {
+	opacity: 0;
+}

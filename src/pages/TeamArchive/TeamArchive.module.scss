@@ -1,0 +1,134 @@
+@import "../../common/include-media";
+@import "../../common/variables";
+
+.section {
+	background: $bg-dark;
+	color: $text-white;
+	min-height: 100vh;
+
+	@include media(">mobile") {
+		width: calc(100% - 6vw);
+		margin-left: auto;
+		padding: 12vh 10vw 8vh;
+	}
+	@include media("<=mobile") {
+		padding: 6rem 1.5rem 4rem;
+	}
+}
+
+.hero {
+	margin-bottom: 8vh;
+	text-align: center;
+}
+
+.headline {
+	font: 600 8vh/100% $font-serif;
+	letter-spacing: -0.04em;
+	margin-bottom: 2vh;
+	text-transform: uppercase;
+	color: $text-white;
+
+	@include media("<=mobile") {
+		font-size: 3rem;
+	}
+}
+
+.subtitle {
+	font: 500 2.22vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+
+	@include media("<=mobile") {
+		font-size: 0.875rem;
+	}
+}
+
+.list {
+	width: 100%;
+	margin-bottom: 10vh;
+}
+
+.row {
+	cursor: pointer;
+	border-bottom: 1px solid $border-white;
+	padding: 4vh 0;
+	transition: background-color 0.3s ease;
+	display: block;
+	text-decoration: none;
+
+	&:first-child {
+		border-top: 1px solid $border-white;
+	}
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.02);
+	}
+}
+
+.rowHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	@include media("<=mobile") {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1vh;
+	}
+}
+
+.tenureYear {
+	font: 600 4vh $font-serif;
+	flex: 1;
+	color: $text-white;
+	transition: color 0.3s ease;
+
+	.row:hover & {
+		color: $accent-red;
+	}
+
+	@include media("<=mobile") {
+		font-size: 1.75rem;
+	}
+}
+
+.label {
+	font: 600 1.56vh $font-sans;
+	color: $text-muted;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	flex: 1;
+	text-align: center;
+
+	@include media("<=mobile") {
+		text-align: left;
+		font-size: 0.75rem;
+	}
+}
+
+.currentHighlight {
+	.label {
+		color: $accent-red;
+		text-shadow: 0 0 10px rgba(255, 64, 64, 0.15);
+	}
+	.tenureYear {
+		color: $accent-red;
+	}
+}
+
+.memberCount {
+	font: 500 1.78vh $font-sans;
+	color: $text-muted;
+	flex: 1;
+	text-align: right;
+
+	@include media("<=mobile") {
+		text-align: left;
+		font-size: 0.875rem;
+	}
+}
+
+.animateOpacity {
+	opacity: 0;
+}
