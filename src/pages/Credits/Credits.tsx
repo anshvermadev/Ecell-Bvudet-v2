@@ -24,24 +24,73 @@ const Credits: React.FC<PageProps> = ({
 		{
 			id: "ansh-verma",
 			name: "Ansh Verma",
-			role: "LEAD DEVELOPER & TECHNICAL HEAD",
-			bio: "Coding is the art of translating imagination into reality. Every detail, every interaction, and every motion is engineered to deliver a seamless, high-performance experience.",
-			github: "https://github.com/Anshverma-in",
-			linkedin: "https://www.linkedin.com/in/anshverma14",
-			instagram: "https://instagram.com",
-			email: "ecell.detnm@bvucoep.edu.in",
-			website: "https://anshverma.dev"
+			role: "LEAD DEVELOPER",
+			bio: "Lead Developer who managed the entire website creation and deployment process. Handled technical SEO, image optimization, and implemented advanced animations using GSAP and ScrollTrigger.",
+			github: "https://github.com/anshvermadev",
+			linkedin: "https://www.linkedin.com/in/ansh-verma-37504b2b7",
+			instagram: "https://www.instagram.com/verma_07ansh",
+			email: "verma.07ansh@gmail.com",
+			website: "https://ansh-verma.xyz"
 		},
 		{
-			id: "dev-2",
-			name: "Developer Name",
+			id: "siddharth-singh",
+			name: "Siddharth Singh",
 			role: "DEVELOPER",
-			bio: "Crafting digital experiences with precision and passion. Focusing on modern architectures and seamless execution to push the boundaries of the web.",
-			github: "https://github.com",
-			linkedin: "https://linkedin.com",
-			instagram: "https://instagram.com",
-			email: "ecell.detnm@bvucoep.edu.in",
-			website: "#"
+			bio: "Contributed to building the website frontend and creating a smooth user experience.",
+			github: "https://github.com/SiddharthSingh06",
+			linkedin: "https://www.linkedin.com/in/siddharth-singh-9aaa1b30b",
+			instagram: "https://www.instagram.com/siddharthsingh2926",
+			email: "sidddharthsingh707@gmail.com"
+		},
+		{
+			id: "shivam-kumar",
+			name: "Shivam Kumar",
+			role: "DEVELOPER",
+			bio: "Helped develop the website's user interface and integrated various interactive components.",
+			github: "https://github.com/skroy3300-art",
+			linkedin: "https://www.linkedin.com/in/shivam-kumar-467794290",
+			instagram: "https://www.instagram.com/_shivamkr.28",
+			email: "skroy.3300@gmail.com"
+		},
+		{
+			id: "deepanshu-ghosalkar",
+			name: "Deepanshu Jayesh Ghosalkar",
+			role: "DEVELOPER",
+			bio: "Worked on the frontend development of the E-Cell website and ensured optimal performance.",
+			github: "https://github.com/SPY-DEEP-06",
+			linkedin: "https://www.linkedin.com/in/deepanshu-ghosalkar-deep",
+			instagram: "https://www.instagram.com/deep_ghosalkar_",
+			email: "ghosalkardeepanshu@gmail.com"
+		},
+		{
+			id: "srushti-kalbhor",
+			name: "Srushti Kalbhor",
+			role: "DEVELOPER",
+			bio: "Assisted in building the website layouts and polishing the overall design.",
+			github: "https://github.com/Srushtihkalbhor-2007",
+			linkedin: "https://www.linkedin.com/in/srushti-kalbhor-44b865332",
+			instagram: "https://www.instagram.com/_srusht.iiik_",
+			email: "Srushtikalbhor1307@gmail.com"
+		},
+		{
+			id: "piyush-jaiswal",
+			name: "Piyush Jaiswal",
+			role: "DEVELOPER",
+			bio: "Contributed to the website's development and managed the deployment process.",
+			github: "https://github.com/PiyushBillE",
+			linkedin: "https://www.linkedin.com/in/piyush-jaiswal-7a5850272",
+			instagram: "https://www.instagram.com/probablyalunatic",
+			email: "piyushjaiswal0101@gmail.com"
+		},
+		{
+			id: "harshal-sukhdare",
+			name: "Harshal Sukhdare",
+			role: "DEVELOPER",
+			bio: "Helped design and build the frontend sections of the E-Cell website.",
+			github: "https://github.com/Harshalss28",
+			linkedin: "https://www.linkedin.com/in/harshal-sukhdare-06460434a",
+			instagram: "https://www.instagram.com/harshal_sukhdare_28",
+			email: "harshalsukhdare28@gmail.com"
 		}
 	];
 
