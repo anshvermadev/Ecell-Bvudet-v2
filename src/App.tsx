@@ -8,6 +8,7 @@ import Menu from "./components/Menu/Menu";
 import Contact from "./pages/Contact/Contact";
 import Gallery from "./pages/Gallery/Gallery";
 import Register from "./pages/Register/Register";
+import NotFound from "./pages/NotFound/NotFound";
 import Founders from "./pages/Founders/Founders";
 import Archive from "./pages/Archive/Archive";
 import Credits from "./pages/Credits/Credits";
@@ -42,6 +43,7 @@ function App() {
 		{ path: "/credits", name: "Credits", Component: Credits },
 		{ path: "/past-events/:slug", name: "Event Detail", Component: PastEventDetail },
 		{ path: "/past-events/:slug/gallery", name: "Event Gallery", Component: EventGallery },
+		{ path: "*", name: "Not Found", Component: NotFound },
 	];
 
 	const onEnter = () => {
