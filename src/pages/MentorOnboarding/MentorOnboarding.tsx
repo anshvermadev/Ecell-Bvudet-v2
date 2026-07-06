@@ -9,7 +9,7 @@ import Nav from '../../components/Nav/Nav';
 import Button from '../../components/Button/Button';
 import { PageProps } from '../page.types';
 import { submitMentor, MentorFormData } from '../../utils/submitMentor';
-import { FaUpload, FaCheck } from 'react-icons/fa6';
+import { FaUpload, FaCheck, FaArrowRight } from 'react-icons/fa6';
 
 const industryOptions = [
   "Fintech", "EdTech", "AI / ML", "D2C", "SaaS", 
@@ -266,6 +266,19 @@ const MentorOnboarding: React.FC<PageProps> = ({
           <p className={`${S.description} ${S.animateOpacity} hidden-init`}>
             Thank you for supporting student entrepreneurs. Please fill in your details below to join our exclusive mentor network.
           </p>
+          {submitStatus !== 'success' && (
+            <div 
+              className={`${S.scrollArrowContainer} ${S.animateOpacity} hidden-init`} 
+              style={{ marginTop: '8vh', cursor: 'pointer' }}
+              onClick={() => {
+                if (scroll) {
+                  scroll.scrollTo(document.querySelector(`form`), { duration: 800, offset: -100 });
+                }
+              }}
+            >
+              <FaArrowRight />
+            </div>
+          )}
         </div>
 
         {submitStatus === 'success' ? (
