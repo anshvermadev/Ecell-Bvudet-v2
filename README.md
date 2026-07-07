@@ -15,3 +15,11 @@ A premium, highly interactive single-page application built to inspire and conne
 - **Mentor Onboarding:** A seamless, multi-step application flow for industry experts to join the ecosystem, featuring interactive image cropping.
 - **Startup Registration:** A guided timeline interface for founders to apply for incubation and submit pitch decks.
 - **Serverless Architecture:** Form submissions (mentors and startups) are routed instantly and securely directly to Google Sheets without the need for a heavy traditional database.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 17, TypeScript, Vite
+- **Styling:** SCSS (CSS Modules)
+- **Animation & Motion:** GSAP, Locomotive Scroll, Splitting.js
+- **Assets:** React Icons, Vite Plugin SVGR
+- **Backend/Data:** Google Apps Script (Serverless Google Sheets Integration)
