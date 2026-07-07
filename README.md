@@ -23,3 +23,7 @@ A premium, highly interactive single-page application built to inspire and conne
 - **Animation & Motion:** GSAP, Locomotive Scroll, Splitting.js
 - **Assets:** React Icons, Vite Plugin SVGR
 - **Backend/Data:** Google Apps Script (Serverless Google Sheets Integration)
+
+## 🚀 Getting Started
+
+Follow these instructions to get a local copy up and running.
