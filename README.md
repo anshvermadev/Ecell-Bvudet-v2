@@ -27,3 +27,7 @@ A premium, highly interactive single-page application built to inspire and conne
 ## 🚀 Getting Started
 
 Follow these instructions to get a local copy up and running.
+
+### Prerequisites
+- Node.js (v14 or higher recommended)
+- npm or yarn
